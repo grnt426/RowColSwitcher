@@ -4,7 +4,8 @@ import xlrd
 from datetime import time
 
 # Grab all XLS files in this directory
-for file in glob.glob("*.xls"):
+for file in glob.glob("*.xls*"):
+    print("Found `" + file + "`, converting...")
 
     # Convert the XLS to CSV
     wb = xlrd.open_workbook(file)
@@ -43,3 +44,4 @@ for file in glob.glob("*.xls"):
             outputFile.write(entry + ",")
         outputFile.write("\n")
     outputFile.close()
+input("Press any key to exit...")
